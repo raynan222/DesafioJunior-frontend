@@ -1,0 +1,124 @@
+/* Login form */
+
+.container-login {
+    position: absolute;
+}
+
+.login-form {
+    margin: auto;
+    width: 60%;
+}
+
+@media only screen and (max-width: 768px) {
+    .login-form {
+        width: 100%;
+    }
+}
+
+/* Buttons */
+
+.btn-circle, .btn-icon-split {
+    margin-right: 6px;
+    margin-bottom: 6px;
+}
+
+/* Tables */
+
+.actions-title {
+    width: 1% !important;
+    position: relative;
+}
+
+.actions-data {
+    width: auto !important;
+}
+
+/*----------------------------------------------------------------------------------------------------*/
+
+/* Pagination responsive */
+
+@media screen and (max-width: 540px) {
+	.page-item-10 {
+		display: none;
+	}
+}
+
+@media screen and (max-width: 525px) {
+	.page-item-9 {
+		display: none;
+	}
+}
+
+@media screen and (max-width: 495px) {
+	.page-item-8 {
+		display: none;
+	}
+}
+
+@media screen and (max-width: 470px) {
+	.page-item-7 {
+		display: none;
+	}
+}
+
+@media screen and (max-width: 445px) {
+	.page-item-6 {
+		display: none;
+	}
+}
+
+@media screen and (max-width: 420px) {
+	.page-item-5 {
+		display: none;
+	}
+}
+
+@media screen and (max-width: 395px) {
+	.page-item-4 {
+		display: none;
+	}
+}
+
+@media screen and (max-width: 370px) {
+	.page-item-3 {
+		display: none;
+	}
+}
+
+@media screen and (max-width: 350px) {
+	.page-item-2 {
+		display: none;
+	}
+}
+
+@media screen and (max-width: 320px) {
+	.page-item-1 {
+		display: none;
+	}
+}
+
+@media screen and (max-width: 300px) {
+	.page-item-0 {
+		display: none;
+	}
+}
+
+@media screen and (max-width: 270px) {
+	.page-item-end {
+		display: none;
+	}
+
+	.page-item-start {
+		display: none;
+	}
+}
+
+@media screen and (max-width: 240px) {
+	.page-item-prev {
+		display: none;
+	}
+
+	.page-item-next {
+		display: none;
+	}
+}
