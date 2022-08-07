@@ -21,6 +21,7 @@ class List extends Component
 
         this.state = {
             data: [],
+            actions: undefined,
             loading: false,
             entries: 10,
             pagination: {
@@ -47,8 +48,12 @@ class List extends Component
         this.loadList();
     }
 
-    loadList()
+    loadList(entries=undefined)
     {
+        if (entries === undefined) {
+            entries = this.state.entries;
+        }
+
         this._isMounted = true;
         const self = this;
         
@@ -58,7 +63,7 @@ class List extends Component
         
         const params = {
             page: this.state.pagination.current,
-            count: this.state.entries,
+            rows_per_page: entries,
         }
 
         Rest.get(this.props.url, params).then(res => 
@@ -86,7 +91,7 @@ class List extends Component
     handleChangeEntries(e) 
     {
         this.setState({entries: e.target.value});
-        this.loadList();
+        this.loadList(e.target.value);
     }
 
     handleOnClickPage(e)
@@ -124,7 +129,7 @@ class List extends Component
                         }
                         {   this.state.data.length > 0 &&
                             <PageRow>
-                                <TableRegisters actions={ this.props.actions } data={ this.state.data } fields={ this.props.fields } />
+                                <TableRegisters actions={ this.props.actions } reload={ this.loadList } data={ this.state.data } fields={ this.props.fields } />
                             </PageRow>
                         }
                         {

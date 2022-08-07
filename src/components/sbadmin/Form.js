@@ -375,7 +375,7 @@ class InputInGroup extends Component
         }
 
         return (
-            <div className= {"form-group col " + (this.props.colsize ? "col-md-" + this.props.colsize : "")  }>
+            <div className={"form-group col " + (this.props.colsize ? "col-md-" + this.props.colsize : "")  }>
                 <label>{ getMessage(this.props.label) }</label>
                 <input type={ this.props.type } className={ classValue } id={ this.props.name }  name={ this.props.name }
                     required={ this.props.required } disabled={this.props.disabled} value={this.props.value} autoFocus={ this.props.autofocus } onChange={ this.props.onChange } />
@@ -416,7 +416,6 @@ class SelectField extends Component
 	componentDidMount()
 	{
 		this._isMounted = true;
-		console.log(this.props.url);
 		this._isMounted && Rest.get(this.props.url, this.props.urlParameters).then(this.handleReceiveOption);
 	}
 
@@ -445,14 +444,13 @@ class SelectField extends Component
 		}
 
 		key=1;
-		console.log(this.state.options);
 		const options = this.state.options.map((data) =>
 			<option key={key++} value={data[this.props.value_name?this.props.value_name:this.props.name]}>{ data.nome ? data.nome: this.concatenarValues(data) }</option>
 		);
 
 
 		return (
-			<div className= { "form-group col " + (this.props.colsize ? "col-md-" + this.props.colsize : "") }>
+			<div className={ "form-group col " + (this.props.colsize ? "col-md-" + this.props.colsize : "") }>
 				<label>{ getMessage(this.props.label) }</label>
 				<select className={ classValue } id={ this.props.name }  name={ this.props.name }
 						required={ this.props.required } value={this.props.value} autoFocus={ this.props.autofocus } onChange={ this.props.onChange }>

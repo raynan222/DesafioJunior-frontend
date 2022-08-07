@@ -2,6 +2,7 @@ import { Component } from 'react';
 import getMessage from '../../sets/Messages';
 import { formatString, sleep } from '../utils/Utils';
 import RestService from '../../services/Rest';
+import {alertas, confirmacao, error_axios} from '../../services/Alerts';
 
 
 const Rest = new RestService();
@@ -56,22 +57,22 @@ class Page extends Component
     handleOnClickDel(e)
     {
         const delUrl = this.props.url_user_delete;
-        /*AlertifyConfirm(
-            formatString(getMessage('app.layout.labels.delete.message'), [e]),
-            () => 
-            {
-                Rest.delete(delUrl, {}).then(res => {
-                    console.log(res, "mensagem")
+        confirmacao("Cuidado", "Voce ira deletar o cadastro, deseja continuar?", "warning").then(res => {
+            if (res){
+                Rest.delete(delUrl+e).then(res => {
                     if (res.data.error) {
-                        AlertifyError([{message: res.data.message}]);
+                        alertas(res.data, res.data.message);
                     } else {
-                        AlertifySuccess([{message: res.data.message}]);
+                        console.log(res.data)
+                        confirmacao("Sucesso!", res.data.message, "success").then(res=>{
+                            window.location.reload();
+                        });
                     }
-                }).catch(err => {
-                    console.error(err);
+                }).catch(function (error){
+                    error_axios(error)
                 });
-            }, null
-        );*/
+            };
+        });
     }
 
 }

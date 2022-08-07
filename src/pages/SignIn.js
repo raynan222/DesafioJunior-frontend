@@ -6,7 +6,7 @@ import { FormPage, FormRow } from '../components/sbadmin/Layout';
 import { InputInGroup, SaveButton, CancelButton, Select2Field } from '../components/sbadmin/Form';
 import {Redirect} from "react-router-dom";
 import RestService from '../services/Rest';
-
+import {alertas, error_axios} from '../services/Alerts';
 const Rest = new RestService();
 
 class SignIn extends Component
@@ -25,11 +25,6 @@ class SignIn extends Component
         super(props);
 
         this.state = {
-            data: {"usuario": {
-                "endereco": {
-
-                },
-            },},
             errors: {},
             loading: false,
         }
@@ -76,16 +71,20 @@ class SignIn extends Component
         {
             if (res.data.error)
             {
-                //AlertifyError(res.data.errors.form)
+                alertas(res.data, res.data.message)
                 this.setState({
                     errors: res.data.errors.fields,
                 });
+            }else if (!res.data.error){
+                alertas(res.data, res.data.message)
+                this.goBack();
             }
-            
             this.setState({
                 loading: false,
             });
-        });
+        }).catch(function (error){
+			error_axios(error)
+		});
     }
 
     render() 
@@ -100,7 +99,7 @@ class SignIn extends Component
                                 <FormRow>
                                     <InputInGroup type="email" name="email" errors={ [] }  onChange={ this.handleChange } 
                                         label='page.useredit.fields.email' required={false} colsize="4"/>
-                                    <InputInGroup type="senha" name="senha" errors={ [] }  onChange={ this.handleChange } 
+                                    <InputInGroup type="password" name="senha" errors={ [] }  onChange={ this.handleChange } 
                                         label='page.useredit.fields.senha' required={false} colsize="4"/>
                                     <InputInGroup type="nome" name="nome" errors={ [] }  onChange={ this.handleChange } 
                                         label='page.useredit.fields.nome' required={false} colsize="4"/>

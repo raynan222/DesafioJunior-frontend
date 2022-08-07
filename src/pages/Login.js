@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import '../components/sbadmin/Layout.css';
 import getMessage from '../sets/Messages';
 import AuthService from '../services/Auth';
-import {alertas, cuidado} from '../services/Alerts';
+import {alertas} from '../services/Alerts';
 
 const Auth = new AuthService();
 

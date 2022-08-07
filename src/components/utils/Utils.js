@@ -167,8 +167,11 @@ const regexInput = (currentValue, represent) =>
 	if (represent === "cpf") {
 		value = maskInput(currentValue, "999.999.999-99");
 	}
-	if (represent === "cnpj") {
-		value = maskInput(currentValue, "99.999.999/9999-99");
+	if (represent === "cep") {
+		value = maskInput(currentValue, "99999-999");
+	}
+	if (represent === "pis") {
+		value = maskInput(currentValue, "999.99999.99-9");
 	}
 	if (represent === "plate") {
 		value = maskInput(currentValue, "AAA-9999");
