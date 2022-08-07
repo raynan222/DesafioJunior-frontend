@@ -9,14 +9,14 @@ class ListPage extends Page
         super(props)
         
         this.state = {
-            buttons: [
+            /*buttons: [
                 {
                     text: 'app.layout.labels.buttons.add',
                     type: 'primary',
                     icon: 'plus',
                     onClick: this.handleOnClickAdd,
                 }
-            ],
+            ],*/
             actions: [
                 {
                     text: 'app.layout.labels.buttons.edit',

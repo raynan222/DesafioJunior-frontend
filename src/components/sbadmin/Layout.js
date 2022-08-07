@@ -114,7 +114,7 @@ class FormPage extends Component
         return (
             <div className="card m-3 b-1">
                 <div className="card-header">
-                    <i className={ Icons.table }/> { getMessage(this.props.title) }
+                    <i /> { getMessage(this.props.title) }
                 </div>
                 <div className="card-body">
                     { this.props.details }

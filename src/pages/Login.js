@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { BrandButton } from '../components/sbadmin/Button'
 import '../components/sbadmin/Layout.css';
 import getMessage from '../sets/Messages';
 import AuthService from '../services/Auth';
+import {alertas, cuidado} from '../services/Alerts';
 
 const Auth = new AuthService();
 
@@ -38,47 +38,16 @@ class LoginPage extends Component
         this.setState({data: data});
     }
 
-    handleErrorLogin(errors)
-    {
-        let arrErrors = [];
-        let arrKeys = Object.keys(errors.fields)
-        
-        for (let i = 0; i < arrKeys.length; i++) {
-            arrErrors[arrKeys[i]] = errors.fields[arrKeys[i]].message;
-        }
-
-        this.setState({
-            fieldErrors: arrErrors,
-        });
-
-        //AlertifyError(errors.form);
-    }
 
     handleSubmit(e) 
     {   
         e.preventDefault();
         Auth.login(this.state.data.username, this.state.data.password).then(res => {
             if (res.error) {
-                this.handleErrorLogin(res.errors);
+                alertas(res, res.message)
             } else 
-            {
-                //AlertifySuccess([{message: getMessage("app.pages.login.success")}])
-                this.props.history.push('/');
-            }
-        }).catch(err=> {
-            console.log(err);
-        })
-    }
-
-    handleSignIn(e) 
-    {   
-        e.preventDefault();
-        Auth.login(this.state.data.username, this.state.data.password).then(res => {
-            if (res.error) {
-                this.handleErrorLogin(res.errors);
-            } else 
-            {
-                //AlertifySuccess([{message: getMessage("app.pages.login.success")}])
+            {   
+                alertas(res, "Seja bem vindo "+res.usuario.nome)
                 this.props.history.push('/');
             }
         }).catch(err=> {

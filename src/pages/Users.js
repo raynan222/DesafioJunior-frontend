@@ -8,7 +8,7 @@ import { InputInGroup, SaveButton, CancelButton, SelectField, Select2Field } fro
 import {Redirect} from "react-router-dom";
 import RestService from '../services/Rest';
 import Cookies from 'js-cookie';
-
+import {alertas, cuidado} from '../services/Alerts';
 const Rest = new RestService();
 
 class UsersAdd extends FormPage
@@ -100,21 +100,6 @@ class UsersEdit extends Page
         });
 
         console.log(this.state)
-        /*
-        Rest.put(url, params).then(res => 
-        {
-            if (res.data.error)
-            {
-                AlertifyError(res.data.errors.form)
-                this.setState({
-                    errors: res.data.errors.fields,
-                });
-            }
-            
-            this.setState({
-                loading: false,
-            });
-        });*/
     }
 
     render() 
@@ -233,8 +218,6 @@ class UserView extends Page
 }
 
 
-
-
 /*----------------------------------------------------------------------------------------------------*/
 
 class BasicView extends Component
@@ -321,10 +304,10 @@ class PasswordEdit extends Component
         {
             if (res.data.error)
             {
-                //AlertifyError(res.data.errors.form)
-                this.setState({
-                    errors: res.data.errors.fields,
-                });
+                alertas(res.data, res.data.message)
+            }else{
+                alertas(res.data, res.data.message)
+                this.goBack();
             }
             
             this.setState({
@@ -343,12 +326,16 @@ class PasswordEdit extends Component
                             <FormPage title="page.user.password.edit.title">
                                     
                                 <FormRow>
-                                    <InputInGroup type="senha_antiga" name="senha_antiga" errors={ [] }  onChange={ this.handleChange } 
-                                        label='page.useredit.fields.senha_antiga' required={false} colsize="4"/>
-                                    <InputInGroup type="senha_nova1" name="senha_nova1" errors={ [] }  onChange={ this.handleChange } 
-                                        label='page.useredit.fields.senha_nova1' required={false} colsize="4"/>
-                                    <InputInGroup type="senha_nova2" name="senha_nova2" errors={ [] }  onChange={ this.handleChange } 
-                                        label='page.useredit.fields.senha_nova2' required={false} colsize="4"/>
+                                    <InputInGroup type="password" name="senha_antiga" errors={ [] }  onChange={ this.handleChange } 
+                                        label='page.useredit.fields.senha_antiga' required={false} colsize="8"/>
+                                </FormRow>
+                                <FormRow>
+                                    <InputInGroup type="password" name="senha_nova1" errors={ [] }  onChange={ this.handleChange } 
+                                        label='page.useredit.fields.senha_nova1' required={false} colsize="8"/>
+                                </FormRow>
+                                <FormRow>
+                                    <InputInGroup type="password" name="senha_nova2" errors={ [] }  onChange={ this.handleChange } 
+                                        label='page.useredit.fields.senha_nova2' required={false} colsize="8"/>
                                 </FormRow>
 
 

@@ -1,9 +1,9 @@
-const env = process.env.NODE_ENV || "development";
+const env = process.env.ENV || "dev";
 const back_uri = process.env.REACT_APP_BACK_URI || "http://localhost:5000";
 
 const config = {
-	'development': {
-		'domain': 'http://localhost:5000',
+	'dev': {
+		'domain': back_uri,
 		'appName': "Frontend",
 		'version': "0.0.1",
 		'company': "Company",

@@ -2,7 +2,6 @@ import { Component } from 'react';
 import getMessage from '../../sets/Messages';
 import { formatString, sleep } from '../utils/Utils';
 import RestService from '../../services/Rest';
-import swal from 'sweetalert';
 
 
 const Rest = new RestService();
@@ -31,7 +30,7 @@ class Page extends Component
     handleOnClickAdd(e)
     {
         console.log("oia!")
-        swal("Oops!", "Something went wrong!", "error");
+        //swal("Oops!", "Something went wrong!", "success");
         /*const addUrl = "/" + this.props.url.split("/")[0] + "/add";
         this.props.history.push(addUrl);*/
     }
