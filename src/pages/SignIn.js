@@ -6,7 +6,9 @@ import { FormPage, FormRow } from '../components/sbadmin/Layout';
 import { InputInGroup, SaveButton, CancelButton, Select2Field } from '../components/sbadmin/Form';
 import {Redirect} from "react-router-dom";
 import RestService from '../services/Rest';
-import {alertas, error_axios} from '../services/Alerts';
+import {confirmacao, error_axios} from '../services/Alerts';
+import {regexInput} from '../components/utils/Utils';
+
 const Rest = new RestService();
 
 class SignIn extends Component
@@ -27,8 +29,10 @@ class SignIn extends Component
         this.state = {
             errors: {},
             loading: false,
+            data: {}
         }
 
+        //{"cpf": "", "pis": "", "cep": ""}
         this.goBack = this.goBack.bind(this);
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -41,6 +45,7 @@ class SignIn extends Component
 
     handleChange(e) 
     {
+        let value = this.fieldIdentifier(e)
         let data = {}
         let errors = {}
 
@@ -48,15 +53,25 @@ class SignIn extends Component
             data = this.state.data;
         }
 
-        if (this.state.errors) {
-            errors = this.state.errors;
-        }
-
-        errors[e.target.name] = {message: ""};
-        data[e.target.name] = e.target.value;
+        data[e.target.name] = value;
         this.setState({data: data, errors: errors});
         console.log(this.state)
     }
+
+    fieldIdentifier(e){
+        if(e.target.name === "cpf"){
+            return regexInput(e.target.value, "cpf")
+        }
+        else if(e.target.name === "pis"){
+            return regexInput(e.target.value, "pis")
+        }
+        else if(e.target.name === "cep"){
+            return regexInput(e.target.value, "cep")
+        }
+        return e.target.value;
+    }
+
+
 
     handleSubmit(e)
     {
@@ -71,13 +86,16 @@ class SignIn extends Component
         {
             if (res.data.error)
             {
-                alertas(res.data, res.data.message)
-                this.setState({
-                    errors: res.data.errors.fields,
-                });
+                confirmacao("Oops!", res.data.message, "error").then(res =>{ 
+                    this.setState({
+                        errors: res.data.errors.fields,
+                    });
+                })
+                
             }else if (!res.data.error){
-                alertas(res.data, res.data.message)
-                this.goBack();
+                confirmacao("Sucesso!", res.data.message, "success").then(res =>
+                    {this.goBack();}
+                )
             }
             this.setState({
                 loading: false,
@@ -107,9 +125,9 @@ class SignIn extends Component
 
                                 <FormRow>
                                     <InputInGroup type="cpf" name="cpf" errors={ [] }  onChange={ this.handleChange }
-                                        label='page.useredit.fields.cpf' required={false} colsize="6"/>  
+                                        label='page.useredit.fields.cpf' required={false} colsize="6" value = {this.state.data.cpf}/>  
                                     <InputInGroup type="pis" name="pis" errors={ [] }  onChange={ this.handleChange } 
-                                        label='page.useredit.fields.pis' required={false} colsize="6"/>
+                                        label='page.useredit.fields.pis' required={false} colsize="6" value = {this.state.data.pis}/>
                                 </FormRow>
                                 
                                 <FormRow>
@@ -118,7 +136,7 @@ class SignIn extends Component
                                     <InputInGroup type="numero" name="numero" errors={ [] }  onChange={ this.handleChange } 
                                         label='page.useredit.fields.numero' required={false} colsize="3"/>
                                     <InputInGroup type="cep" name="cep" errors={ [] }  onChange={ this.handleChange } 
-                                        label='page.useredit.fields.cep' required={false} colsize="3"/>
+                                        label='page.useredit.fields.cep' required={false} colsize="3" value = {this.state.data.cep}/>
                                 </FormRow>
 
                                 <FormRow>

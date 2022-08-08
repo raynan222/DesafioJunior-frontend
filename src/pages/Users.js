@@ -197,7 +197,6 @@ class UsersEdit extends Page
 
     handleSubmit(e)
     {
-        
         const url = "login/update/complete/" + this.state.data.login.id;
         const params = this.state.data_send;
         console.log(params);
@@ -218,7 +217,6 @@ class UsersEdit extends Page
 
     render() 
     {
-        console.log("login_id", this.state.data.login.id)
     
         return (
             this.state.error ?
@@ -259,7 +257,7 @@ class UsersEdit extends Page
                     />
                 </FormRow>
 
-                {Cookies.get("user_profile_role")===1 ?
+                {Cookies.get("user_profile_role")==1 ?
                 <FormRow>
                     <SelectField empty={ false } value_name="id" name='acesso_id' errors={ [] }  onChange={ this.handleChangeLogin }
                         label='page.useredit.fields.role' required={false} colsize="12" url="acesso/all" value={this.state.data.login.acesso_id} />
@@ -312,13 +310,13 @@ class UserView extends Page
     }
 
     fieldMask(value, mask){
-        if(mask === "cpf" && value !== undefined){
+        if(mask == "cpf" && value != undefined){
             return regexInput(value, "cpf")
         }
-        else if(mask === "pis" && value !== undefined){
+        else if(mask == "pis" && value != undefined){
             return regexInput(value, "pis")
         }
-        else if(mask === "cep" && value !== undefined){
+        else if(mask == "cep" && value != undefined){
             return regexInput(value, "cep")
         }
         return value;

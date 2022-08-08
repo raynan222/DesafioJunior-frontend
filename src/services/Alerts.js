@@ -10,13 +10,13 @@ export const alertas = (data, message) =>{
 
 export const error_axios = (error) =>{
     if (error.response) {
-      if(error.response.status === 400 && error.response.data.validation_error.body_params[0].msg !== undefined){
+      if(error.response.status == 400 && error.response.data.validation_error.body_params[0].msg != undefined){
         alertas({"error": true}, error.response.data.validation_error.body_params[0].msg)
       }
     } else if (error.request) {
-      alertas({"error": true}, "Não foi possivel conectar com o servidor!")
+      alertas({"error": true}, "Aconteceu algo verifique os dados e tente novamente!")
     } else {
-      alertas({"error": true}, "Algo aconteceu!")
+      alertas({"error": true}, "Algo aconteceu, tente novamente!")
     }
 };
 
