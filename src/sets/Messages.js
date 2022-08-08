@@ -44,7 +44,8 @@ const Msgs = {
     "app.pages.404.fail": "Acho que você encontrou uma falha na matrix",
     "app.pages.404.back": "Voltar para o dashboard",
 
-    "app.pages.home.title": "Home",
+    "app.pages.home.side": "Pagina inicial",
+    "app.page.home.title": "Seja bem-vindo!",
     "app.pages.home.cardlabel": "Campo",
     "app.pages.home.cardvalue": "Valor",
     "app.pages.home.label": "campo",

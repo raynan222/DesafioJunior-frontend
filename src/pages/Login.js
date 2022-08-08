@@ -4,6 +4,7 @@ import '../components/sbadmin/Layout.css';
 import getMessage from '../sets/Messages';
 import AuthService from '../services/Auth';
 import {alertas, error_axios} from '../services/Alerts';
+import Cookies from 'js-cookie';
 
 const Auth = new AuthService();
 
@@ -47,7 +48,7 @@ class LoginPage extends Component
                 alertas(res, res.message)
             } else 
             {   
-                alertas(res, "Seja bem vindo "+res.usuario.nome)
+                alertas(res, "Seja bem vindo "+res.usuario.nome);
                 this.props.history.push('/');
             }
         }).catch(function (error){

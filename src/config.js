@@ -15,7 +15,7 @@ const config = {
 		'appName': "Frontend",
 		'version': "1.0.0",
 		'company': "Company",
-		"site": "http://www.backend.com.br",
+		
 		'year': "2022"
 	}
 };

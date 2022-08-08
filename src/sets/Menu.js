@@ -1,6 +1,6 @@
 const Menu = {
     "1": [ // Admin
-            { type: "link", title: "app.pages.home.title", url: "/", icon: "home" },
+            { type: "link", title: "app.pages.home.side", url: "/", icon: "home" },
             { type: "group",
                 "links": [
                     { type: "label", title: "app.pages.home.subtitle"},
@@ -10,7 +10,7 @@ const Menu = {
             },
         ],
     "2": [ // Default
-        { type: "link", title: "app.pages.home.title", url: "/", icon: "home" },
+        { type: "link", title: "app.pages.home.side", url: "/", icon: "home" },
         { type: "group",
             "links": [
                 { type: "label", title: "app.pages.home.subtitle"},

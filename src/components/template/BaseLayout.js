@@ -35,7 +35,7 @@ class BaseLayoutScreen extends Component
     handleLoadUserRole()
 	{
 		let scope = this;
-		sleep(100).then(function() 
+		sleep(200).then(function() 
 		{
             if (Auth.loggedIn())
             {

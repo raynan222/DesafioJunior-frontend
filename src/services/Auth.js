@@ -32,12 +32,14 @@ class AuthService
 		{
 			if (!res.error) 
 			{
+				Cookies.set('user_profile_role', res.acesso_id);
+				Cookies.set('user_profile_name', res.nome);
+				console.log(res.name)
 				this.setToken(res.access_token);
 				this.setRefreshToken(res.refresh_token);
-				this.setUser({role: res.user_role});
+				this.setUser({role: res.acesso_id, name: res.name});
 				this.updateProfile(res.access_token);
 			}
-			
 			return Promise.resolve(res);
 		});
 	}
@@ -174,6 +176,10 @@ class AuthService
 		Cookies.set('id_token', idToken);
 	}
 
+	setName(name) {
+		Cookies.set('user_profile_name', name);
+	}
+
 /*----------------------------------------------------------------------------------------------------*/
 
 	getToken() {
@@ -273,6 +279,16 @@ clearCache(){
 	}
 
 /*----------------------------------------------------------------------------------------------------*/
+	getUserName()
+	{
+		if (this.getUser() == null) {
+			return Cookies.get('user_profile_name');
+		} 
+		else {
+			return this.getUser().name;
+		}
+	}
+
 
 	getUserRole() 
 	{

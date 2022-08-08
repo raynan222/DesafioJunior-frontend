@@ -13,7 +13,7 @@ const Rest = new RestService();
 
 class SignIn extends Component
 {
-    
+
     static defaultProps = {
         title: "app.pages.users.title",
         request: {
@@ -31,8 +31,7 @@ class SignIn extends Component
             loading: false,
             data: {}
         }
-
-        //{"cpf": "", "pis": "", "cep": ""}
+        
         this.goBack = this.goBack.bind(this);
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);

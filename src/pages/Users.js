@@ -86,6 +86,9 @@ class UsersEdit extends Page
         else if(e.target.name === "cep"){
             return regexInput(e.target.value, "cep")
         }
+        else if(e.target.name === "acesso_id"){
+            return parseInt(e.target.value);
+        }
         return e.target.value;
     }
 

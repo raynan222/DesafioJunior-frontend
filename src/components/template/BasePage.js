@@ -18,7 +18,6 @@ class Page extends Component
         }
 
         this.goBack = this.goBack.bind(this);
-        this.handleOnClickAdd = this.handleOnClickAdd.bind(this);
         this.handleOnClickEdt = this.handleOnClickEdt.bind(this);
         this.handleOnClickView = this.handleOnClickView.bind(this);
         this.handleOnClickDel = this.handleOnClickDel.bind(this);
@@ -26,14 +25,6 @@ class Page extends Component
 
     goBack() {
         this.props.history.goBack();
-    }
-
-    handleOnClickAdd(e)
-    {
-        console.log("oia!")
-        //swal("Oops!", "Something went wrong!", "success");
-        /*const addUrl = "/" + this.props.url.split("/")[0] + "/add";
-        this.props.history.push(addUrl);*/
     }
 
     handleOnClickEdt(e)
