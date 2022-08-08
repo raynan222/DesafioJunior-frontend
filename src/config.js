@@ -5,7 +5,15 @@ const config = {
 	'dev': {
 		'domain': back_uri,
 		'appName': "Frontend",
-		'version': "0.0.1",
+		'version': "1.0.0",
+		'company': "Company",
+		"site": "http://www.backend.com.br",
+		'year': "2022"
+	},
+	'heroku': {
+		'domain': back_uri,
+		'appName': "Frontend",
+		'version': "1.0.0",
 		'company': "Company",
 		"site": "http://www.backend.com.br",
 		'year': "2022"
