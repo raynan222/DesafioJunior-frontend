@@ -1,5 +1,5 @@
 const Msgs = {
-    "app.layout.labels.copyright": "Copyright © {0} {1} - desenvolvido por ",
+    "app.layout.labels.copyright": "Copyright © {0} {1} - desenvolvido por Raynan Serafim",
     "app.layout.labels.show-all": "Mostrar tudo",
     "app.layout.labels.signout": "Sair",
     "app.layout.labels.buttons.ok": "Ok",

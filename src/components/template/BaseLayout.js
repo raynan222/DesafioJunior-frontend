@@ -7,7 +7,6 @@ import getMessage from '../../sets/Messages';
 import Menu from '../../sets/Menu';
 import AuthService from '../../services/Auth';
 import { Properties } from '../../config.js';
-import Logo from '../../../public/img/logo-dark.png';
 import './BaseLayout.css';
 
 const Auth = new AuthService();
@@ -67,9 +66,7 @@ class BaseLayoutScreen extends Component
                         this.state.loggedIn && (
                             <FooterWrapper>
                                 { copyright }
-                                <a target="_blank" href={ Properties.site }>
-                                    <img src={ Logo } alt={ Properties.company } id="logo-copyright" />
-                                </a>
+                                <a target="_blank" href={ Properties.site }></a>
                             </FooterWrapper>
                         )
                     }
