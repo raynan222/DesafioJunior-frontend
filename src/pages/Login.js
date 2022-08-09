@@ -4,7 +4,6 @@ import '../components/sbadmin/Layout.css';
 import getMessage from '../sets/Messages';
 import AuthService from '../services/Auth';
 import {alertas, error_axios} from '../services/Alerts';
-import Cookies from 'js-cookie';
 
 const Auth = new AuthService();
 

@@ -468,32 +468,6 @@ class SelectField extends Component
 
 //----------------------------------------------------------------------------------------------------/
 
-class ButtonSubmit extends Component 
-{
-    render() 
-    {
-        return (
-            <input className='btn btn-primary button-form' value={ getMessage(this.props.text) } type="submit" 
-                onClick={ this.props.onClick } />
-        );
-    }
-}
-
-//----------------------------------------------------------------------------------------------------/
-
-class ButtonCancel extends Component 
-{
-    render() 
-    {
-        return (
-            <input className='btn btn-danger button-form' value={ getMessage(this.props.text) } type="submit" 
-                onClick={ this.props.onClick } />
-        );
-    }
-}
-
-//----------------------------------------------------------------------------------------------------/
-
 class Select2Field extends Component {
     constructor(props) {
       super(props);
@@ -642,4 +616,4 @@ class Select2Field extends Component {
     }
 }
 
-export { TextField, CurrencyField, CheckboxField, TextareaField, SaveButton, CancelButton, SelectField, InputInGroup, ButtonCancel, ButtonSubmit, Select2Field}
+export { TextField, CurrencyField, CheckboxField, TextareaField, SaveButton, CancelButton, SelectField, InputInGroup, Select2Field}

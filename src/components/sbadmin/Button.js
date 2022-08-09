@@ -106,45 +106,4 @@ class SplitButtonSmall extends Component
 
 /*----------------------------------------------------------------------------------------------------*/
 
-class SplitButtonLarge extends Component
-{
-    static defaultProps = {
-        icon: "users",
-        type: "primary",
-        text: "app.layout.labels.buttons.ok",
-    }
-
-    render()
-    {
-        return (
-            <button to="#" className={ "btn btn-" + this.props.type + " btn-icon-split btn-lg" } onClick={ this.props.onClick }>
-                <span className="icon text-white-50">
-                    <i className={ Icons[ this.props.icon ] }></i>
-                </span>
-                <span className="text">{ getMessage(this.props.text) }</span>
-            </button>            
-        );
-    }
-}
-
-/*----------------------------------------------------------------------------------------------------*/
-
-class BrandButton extends Component
-{
-    static defaultProps = {
-        type: "google",
-        text: "app.layout.labels.buttons.ok",
-        className: "",
-    }
-
-    render()
-    {
-        return (
-            <button to="#" className={ "btn btn-" + this.props.type + " btn-block " + this.props.className } onClick={ this.props.onClick }>
-                <i className={ Icons[this.props.type] }></i> { getMessage(this.props.text) }
-            </button>
-        );
-    }
-}
-
-export { CircleButton, CircleButtonSmall, CircleButtonLarge, SplitButton, SplitButtonLarge, SplitButtonSmall, BrandButton };
+export { CircleButton, CircleButtonSmall, CircleButtonLarge, SplitButton, SplitButtonSmall };

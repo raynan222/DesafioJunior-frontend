@@ -1,5 +1,4 @@
 import ListPage from '../components/template/ListPage';
-import usersForm from '../forms/UsersForm';
 import React from 'react';
 import { Component } from 'react';
 import Page from '../components/template/BasePage';
@@ -11,18 +10,6 @@ import Cookies from 'js-cookie';
 import {alertas, error_axios} from '../services/Alerts';
 import {regexInput} from '../components/utils/Utils';
 const Rest = new RestService();
-
-class UsersAdd extends FormPage
-{
-    static defaultProps = {
-        title: "app.pages.users.title",
-        request: {
-            url: "user/add",
-            method: "POST",
-        },
-        data: usersForm
-    }
-}
 
 /*----------------------------------------------------------------------------------------------------*/
 
@@ -374,15 +361,6 @@ class BasicView extends Component
 
 class PasswordEdit extends Component
 {
-    static defaultProps = {
-        title: "app.pages.users.title",
-        request: {
-            url: "login/update/senha/",
-            method: "PUT",
-        },
-        data: usersForm,
-    }
-
 
     constructor(props) {
         super(props);

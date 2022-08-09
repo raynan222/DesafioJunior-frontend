@@ -1,10 +1,7 @@
-import ListPage from '../components/template/ListPage';
-import usersForm from '../forms/UsersForm';
 import React from 'react';
 import { Component } from 'react';
 import { FormPage, FormRow } from '../components/sbadmin/Layout';
 import { InputInGroup, SaveButton, CancelButton, Select2Field } from '../components/sbadmin/Form';
-import {Redirect} from "react-router-dom";
 import RestService from '../services/Rest';
 import {confirmacao, error_axios} from '../services/Alerts';
 import {regexInput} from '../components/utils/Utils';
@@ -20,7 +17,6 @@ class SignIn extends Component
             url: "login/update/complete/",
             method: "PUT",
         },
-        data: usersForm
     }
 
     constructor(props) {

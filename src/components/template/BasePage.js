@@ -1,6 +1,4 @@
 import { Component } from 'react';
-import getMessage from '../../sets/Messages';
-import { formatString, sleep } from '../utils/Utils';
 import RestService from '../../services/Rest';
 import {alertas, confirmacao, error_axios} from '../../services/Alerts';
 
