@@ -105,7 +105,7 @@ class SignIn extends Component
         return (
             <div className="row justify-content-center login-form">
                 <div className="col-xl-10 col-lg-12 col-md-9">
-                    <div className="card o-hidden border-0 shadow-lg my-5">
+                    
                         <div className="card-body p-0">
                             <FormPage title="page.user.add.title">
                                     
@@ -153,7 +153,7 @@ class SignIn extends Component
                         </div>
                     </div>
                 </div>
-            </div> 
+            
         );
     }
 }

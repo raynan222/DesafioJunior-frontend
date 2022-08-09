@@ -487,4 +487,4 @@ class UsersAll extends ListPage
     }
 }
 
-export { UsersEdit, UsersAdd, UsersAll, UserView, PasswordEdit };
+export { UsersEdit, UsersAll, UserView, PasswordEdit };
