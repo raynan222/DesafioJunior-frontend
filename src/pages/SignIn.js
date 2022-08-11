@@ -110,34 +110,34 @@ class SignIn extends Component
                             <FormPage title="page.user.add.title">
                                     
                                 <FormRow>
-                                    <InputInGroup type="email" name="email" errors={ [] }  onChange={ this.handleChange } 
+                                    <InputInGroup type="text" name="email" errors={ [] }  onChange={ this.handleChange } 
                                         label='page.useredit.fields.email' required={false} colsize="4"/>
                                     <InputInGroup type="password" name="senha" errors={ [] }  onChange={ this.handleChange } 
                                         label='page.useredit.fields.senha' required={false} colsize="4"/>
-                                    <InputInGroup type="nome" name="nome" errors={ [] }  onChange={ this.handleChange } 
+                                    <InputInGroup type="text" name="nome" errors={ [] }  onChange={ this.handleChange } 
                                         label='page.useredit.fields.nome' required={false} colsize="4"/>
                                 </FormRow>
 
                                 <FormRow>
-                                    <InputInGroup type="cpf" name="cpf" errors={ [] }  onChange={ this.handleChange }
+                                    <InputInGroup type="text" name="cpf" errors={ [] }  onChange={ this.handleChange }
                                         label='page.useredit.fields.cpf' required={false} colsize="6" value = {this.state.data.cpf}/>  
-                                    <InputInGroup type="pis" name="pis" errors={ [] }  onChange={ this.handleChange } 
+                                    <InputInGroup type="text" name="pis" errors={ [] }  onChange={ this.handleChange } 
                                         label='page.useredit.fields.pis' required={false} colsize="6" value = {this.state.data.pis}/>
                                 </FormRow>
                                 
                                 <FormRow>
-                                    <InputInGroup type="rua" name="rua" errors={ [] }  onChange={ this.handleChange } 
+                                    <InputInGroup type="text" name="rua" errors={ [] }  onChange={ this.handleChange } 
                                         label='page.useredit.fields.rua' required={false} colsize="6"/>
-                                    <InputInGroup type="numero" name="numero" errors={ [] }  onChange={ this.handleChange } 
+                                    <InputInGroup type="text" name="numero" errors={ [] }  onChange={ this.handleChange } 
                                         label='page.useredit.fields.numero' required={false} colsize="3"/>
-                                    <InputInGroup type="cep" name="cep" errors={ [] }  onChange={ this.handleChange } 
+                                    <InputInGroup type="text" name="cep" errors={ [] }  onChange={ this.handleChange } 
                                         label='page.useredit.fields.cep' required={false} colsize="3" value = {this.state.data.cep}/>
                                 </FormRow>
 
                                 <FormRow>
-                                    <InputInGroup type="bairro" name="bairro" errors={ [] }  onChange={ this.handleChange } 
+                                    <InputInGroup type="text" name="bairro" errors={ [] }  onChange={ this.handleChange } 
                                         label='page.useredit.fields.bairro' required={false} colsize="4"/>
-                                    <InputInGroup type="complemento" name="complemento" errors={ [] }  onChange={ this.handleChange } 
+                                    <InputInGroup type="text" name="complemento" errors={ [] }  onChange={ this.handleChange } 
                                         label='page.useredit.fields.complemento' required={false} colsize="4"/>
                                     <Select2Field
                                         name="municipio_id" colsize="4" onChange={this.handleChange} url_view="municipio/view" url_list="municipio/list"

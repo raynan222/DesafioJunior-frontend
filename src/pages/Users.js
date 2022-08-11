@@ -214,32 +214,32 @@ class UsersEdit extends Page
                 <FormPage title="page.useredit.add.title">
                 
                 <FormRow>
-                    <InputInGroup type="email" name="email" errors={ [] }  onChange={ this.handleChangeLogin } 
+                    <InputInGroup type="text" name="email" errors={ [] }  onChange={ this.handleChangeLogin } 
                         label='page.useredit.fields.email' required={false} colsize="6" value={this.state.data.login.email}/>
-                    <InputInGroup type="nome" name="nome" errors={ [] }  onChange={ this.handleChangeUsuario } 
+                    <InputInGroup type="text" name="nome" errors={ [] }  onChange={ this.handleChangeUsuario } 
                         label='page.useredit.fields.nome' required={false} colsize="6" value={this.state.data.login.usuario.nome}/>
                 </FormRow>
 
                 <FormRow>
-                    <InputInGroup type="cpf" name="cpf" errors={ [] }  onChange={ this.handleChangeUsuario }
+                    <InputInGroup type="text" name="cpf" errors={ [] }  onChange={ this.handleChangeUsuario }
                         label='page.useredit.fields.cpf' required={false} colsize="6" value={this.fieldMask(this.state.data.login.usuario.cpf, "cpf")}/>   
-                    <InputInGroup type="pis" name="pis" errors={ [] }  onChange={ this.handleChangeUsuario } 
+                    <InputInGroup type="text" name="pis" errors={ [] }  onChange={ this.handleChangeUsuario } 
                         label='page.useredit.fields.pis' required={false} colsize="6" value={this.fieldMask(this.state.data.login.usuario.pis, "pis")}/>
                 </FormRow>
                 
                 <FormRow>
-                    <InputInGroup type="rua" name="rua" errors={ [] }  onChange={ this.handleChangeEndereco } 
+                    <InputInGroup type="text" name="rua" errors={ [] }  onChange={ this.handleChangeEndereco } 
                         label='page.useredit.fields.rua' required={false} colsize="6" value={this.state.data.login.usuario.endereco.rua}/>
-                    <InputInGroup type="numero" name="numero" errors={ [] }  onChange={ this.handleChangeEndereco } 
+                    <InputInGroup type="text" name="numero" errors={ [] }  onChange={ this.handleChangeEndereco } 
                         label='page.useredit.fields.numero' required={false} colsize="3" value={this.state.data.login.usuario.endereco.numero}/>
-                    <InputInGroup type="cep" name="cep" errors={ [] }  onChange={ this.handleChangeEndereco } 
+                    <InputInGroup type="text" name="cep" errors={ [] }  onChange={ this.handleChangeEndereco } 
                         label='page.useredit.fields.cep' required={false} colsize="3" value={this.fieldMask(this.state.data.login.usuario.endereco.cep, "cep")}/>
                 </FormRow>
 
                 <FormRow>
-                    <InputInGroup type="bairro" name="bairro" errors={ [] }  onChange={ this.handleChangeEndereco } 
+                    <InputInGroup type="text" name="bairro" errors={ [] }  onChange={ this.handleChangeEndereco } 
                         label='page.useredit.fields.bairro' required={false} colsize="4" value={this.state.data.login.usuario.endereco.bairro}/>
-                    <InputInGroup type="complemento" name="complemento" errors={ [] }  onChange={ this.handleChangeEndereco } 
+                    <InputInGroup type="text" name="complemento" errors={ [] }  onChange={ this.handleChangeEndereco } 
                         label='page.useredit.fields.complemento' required={false} colsize="4" value={this.state.data.login.usuario.endereco.complemento}/>
                     <Select2Field
                         name="Municipio-Estado" colsize="4" onChange={ this.handleChangeEndereco } value={this.state.data.login.usuario.endereco.municipio_id} url_view="municipio/view" url_list="municipio/list"
